@@ -10,16 +10,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         
-        {/* <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Deepak prajapat
-        </a> */}
-
-        <Profile text="function profile component"/>
+        <h1>JSX with react</h1>
       </header>
     </div>
   );
