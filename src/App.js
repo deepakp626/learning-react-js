@@ -10,7 +10,10 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         
-        <h1>JSX with react</h1>
+        {/* <h1>props in react</h1> */}
+        <Profile text={{name:"peter"}} data="profilr data"/>
+        <Profile text={{name:"name 1"}} data="profilr 1 data"/>
+        <Profile text={{name:"name 2"}} data="profilr 2 data"/>
       </header>
     </div>
   );
