@@ -1,37 +1,53 @@
-import React from 'react'
+import React from "react";
 
-// class Profile extends React.Component {
-//     constructor(){
-//         super()
+
+//*******  Event handling with class component
+// export default class Profile extends React.Component
+// {
+//     testFun(){
+//         alert("fun called")
 //     }
-//     componentDidMount(){
-//         console.log("")
-//     }
-//     render() {
-//         return(
+//     render(){
+//         return (
 //             <div>
-//                 <h1>Profile component</h1>
+//                 <h1>Profile</h1>
+//                 <button onClick={()=> this.testFun()}>click</button>
 //             </div>
 //         )
 //     }
 // }
 
-
-// export default function Profile(props) {
-//     return (<div>
-//             <h1 >{props.text.name}</h1>
-//             <h1 >{props.data}</h1>
-//         </div>)
-    
+////*********  Event with function component
+// export default function Profile()
+// {
+//     const  testFun = ()=>{
+//         alert("testfun called")
+//     }
+//         return(
+//             <div>
+//                 <h1>Profile</h1>
+//                 <button onClick={testFun}>click</button>
+//             </div>
+//         )
 // }
 
 
-export default class Profile extends React.Component {
+//********* life cycle method
+export default class Profile extends React.Component
+{
+    constructor(){
+        super();
+        console.log("constructor")
+    }
+    componentDidMount(){
+        console.log("componentDidMount")
+    }
     render(){
+        console.log("render")
         return (
             <div>
-                <h1>{this.props.text.name}</h1>
-                <h1>{this.props.data}</h1>
+                {/* <h1>Profile</h1>
+                <button>click</button> */}
             </div>
         )
     }
