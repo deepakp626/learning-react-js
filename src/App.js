@@ -301,27 +301,135 @@ import "./App.css";
 
 
 
+////// use Refs
+// import React from "react";
+// class App extends React.Component {
+//   constructor(){
+//     super();
+//     this.useRef = React.createRef()
+//   }
+//   editVal(){
+//     // console.warn(this.useRef)
+//     // this.useRef.current.focus()
+//     this.useRef.current.value = "123"
+//   }
+//   render() {
+//     return (
+//       <div>
+//          <h1>What is Ref in React</h1>
+//          <input ref={this.useRef} type="text" name="user"></input>
+//          <button onClick={()=>{this.editVal()}}>Click</button>
+//       </div>
+//     )
+//   }
+// }
 
-import React from "react";
-class App extends React.Component {
-  constructor(){
-    super();
-    this.useRef = React.createRef()
-  }
-  editVal(){
-    // console.warn(this.useRef)
-    // this.useRef.current.focus()
-    this.useRef.current.value = "123"
-  }
-  render() {
-    return (
-      <div>
-         <h1>What is Ref in React</h1>
-         <input ref={this.useRef} type="text" name="user"></input>
-         <button onClick={()=>{this.editVal()}}>Click</button>
+
+
+
+
+
+// //////// Bootstrap in react
+// import React from "react";
+// import {Button,ButtonGroup, Card} from 'react-bootstrap'
+// // import ButtonGroup from 'react-bootstrap/ButtonGroup';
+// // import Card from 'react-bootstrap/Card';
+// class App extends React.Component {
+
+//   render() {
+//     return (
+//       <div>
+//          <h1>Use bootstarp in react</h1>
+//           <Button onClick={()=>{alert("Button clicked")}}>Click</Button>
+//           <br></br>
+//           <ButtonGroup aria-label="Basic example">
+//       <Button variant="secondary">Left</Button>
+//       <Button variant="secondary">Middle</Button>
+//       <Button variant="secondary">Right</Button>
+//     </ButtonGroup>
+//     <br></br>
+//     <br></br>
+//     <Card style={{ width: '18rem' }}>
+//       <Card.Body>
+//         <Card.Title>Card Title</Card.Title>
+//         <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>
+//         <Card.Text>
+//           Some quick example text to build on the card title and make up the
+//           bulk of the card's content.
+//         </Card.Text>
+//         <Card.Link href="#">Card Link</Card.Link>
+//         <Card.Link href="#">Another Link</Card.Link>
+//       </Card.Body>
+//     </Card>
+//       </div>
+//     )
+//   }
+// }
+
+//// Bootstrap modal
+// import React from 'react';
+// import {Button, Modal} from 'react-bootstrap';
+// class App extends React.Component {
+//   constructor(){
+//     super();
+//     this.state= {
+//       show:false,
+//     }
+//   }
+//   handleModal(){
+//        this.setState({show:!this.state.show})
+//   }
+//     render(){
+//       return (
+//            <div>
+//             <Button onClick={()=>this.handleModal}>Clickv me</Button>
+//             <Modal show={this.state.show} onHide={()=>{this.handleModal()}}>
+//               <Modal.Header closeButton>Modal Heading</Modal.Header>
+//               <Modal.Body>
+//                   Hello everyone
+//               </Modal.Body>
+//               <Modal.Footer>
+//                 <Button onClick={()=>this.handleModal}>Close</Button>
+//                 <Button onClick={()=>this.handleModal}>Save</Button>
+//               </Modal.Footer>
+//             </Modal>
+//            </div>
+//       )
+//     }
+// }
+
+
+// // Error Bounding
+// import React, { Component } from 'react'
+// import User from './User'
+// import ErrorBound from "./ErrorBound";
+// class App extends Component {
+//   render() {
+//     return (
+//       <div>
+//         <h1>Error Boundry in react JS</h1>
+//         <ErrorBound />
+//         <User />
+//       </div>
+//     )
+//   }
+// }
+// export default App;
+
+
+
+import React, { Component } from 'react'
+import Form from './Form'
+class App extends Component {
+    render() {
+      return (  <div>
+        <Form />
       </div>
-    )
+      )
+    }
   }
-}
 
-export default App;
+  export default App;
+
+
+
