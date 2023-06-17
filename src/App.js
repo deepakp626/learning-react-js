@@ -418,18 +418,173 @@ import "./App.css";
 
 
 
-import React, { Component } from 'react'
-import Form from './Form'
-class App extends Component {
-    render() {
-      return (  <div>
-        <Form />
-      </div>
-      )
+// import React, { Component } from 'react'
+// import Form from './Form'
+// class App extends Component {
+//     render() {
+//       return (  <div>
+//         <Form />
+//       </div>
+//       )
+//     }
+//   }
+
+
+
+// /// Memo with react
+// import React, {useState} from 'react'
+// import Home from './Home'
+// const  App = ()=>{
+//   const [count, setCount] = useState(0);
+//   const [data,setData] = useState(100);
+//   return( <div>
+//      memo with react {count}
+//      <Home data={data}/>
+//      <button onClick={()=>{setCount(count+1);}}>count</button>
+//      <button onClick={()=>{setCount(data+1);}}>data</button>
+//   </div>
+//   )
+
+// }
+
+// /// JWT authentication
+// import React, { Component } from 'react'
+// export default class App extends Component {
+//   constructor(){
+//     super()
+//     this.state ={
+//       email:null,
+//       password:null,
+//       login:false,
+//       token:null,
+//       store:null,
+//     }
+//   }
+//   componentDidMount(){
+//     let store = JSON.parse(localStorage.getItem('login'));
+//     this.setState({store:store})
+//     if(store.login){
+//       this.setState({store:true})
+//     }
+//     console.warn(store)
+//   }
+//   login(){
+//         console.log("login data ",this.state)
+//         fetch('http://localhost:3000/api/login',{
+//           method:"POST",
+//           body:JSON.stringify(this.state)
+//         }).then((resp)=>{
+//             resp.json().then((result)=>{
+//               console.log("result",result)
+//               localStorage.setItem('login',JSON.stringify({
+//                 login:true,
+//                 token:result.token,
+//               }))
+//               this.setState({login:true})
+
+//             })
+//         })
+//   }
+//   post(){
+
+//   }
+//   render() {
+//     return (
+//       <div>
+//         <h1>JWT token with </h1>
+//         { !this.state.login?
+//           <div>
+//           <input type="text" onChange={(event)=>{this.setState({email:event.target.vlaue})}} /> <br></br>
+//           <input type="password" onChange={(event)=>{this.setState({password:event.target.vlaue})}} />  <br></br>
+//           <button onClick={()=>{this.login()}}>Login here</button>
+//         </div>
+//         :
+//         <div> 
+//           <br></br>
+//           <textarea>
+
+//           </textarea>
+//           <button onClick={()=>{this.login()}}>Login here</button>
+//         </div>
+//         }
+//       </div>
+//     )
+//   }
+// }
+
+
+
+// /// uncontrolled Component
+// import React from 'react';
+// class App extends React.Component{
+//   constructor(){
+//     super()
+//     this.name = React.createRef()
+//     this.password = React.createRef()
+//   }
+//   submitHandle(event){
+//       event.preventDefault();
+//       console.warn(this.namevalue,this.password.value)
+//   }
+//   render(){
+//     return(  <div>
+//       <h1>Uncontrolled  Component</h1>
+//       <form onSubmit={(event)=>{this.submitHandle(event)}}>
+//        <input type="text" placeholder="Enter Name" ref={this.name}></input>
+//        <input type="password" placeholder="Enter password" ref={this.password}></input>
+//        <button type="submit">Submit</button>
+//       </form>
+//     </div>
+//     )
+//   };
+// }
+
+
+// // // Controlled Component 
+// import React from 'react';
+// class App extends React.Component{
+//   constructor(){
+//     super()
+//     this.state={
+//       name:"",
+//       password:"",
+//     }
+//   }
+//   submit(){
+//       // event.preventDefault();
+//       console.warn(this.state)
+//   }
+//   render(){
+//     return(  <div>
+//       <h1>Controlled  Component</h1>
+//        <input type="text" placeholder="Enter Name" 
+//        onChange={(event)=>{this.setState({name:event.target.value})}}></input>
+//        <input type="password" placeholder="Enter password" 
+//         onChange={(event)=>{this.setState({password:event.target.value})}}></input>
+//        <button type="submit" onClick={()=>{this.submit()}}>Submit</button>
+//     </div>
+//     )
+//   };
+// }
+
+
+import React,{Suspense,lazy} from 'react'
+// import Home from './Home'
+const Home =lazy(()=>import('./Home'))
+const About = lazy(()=>import('./About'))
+class App extends React.Component{
+  render(){
+    return( <div>
+      <h1>Lazy Load</h1>
+      <Suspense fallback={<div>Please Wail... Home is Loading</div>}>
+      <Home />
+      </Suspense>
+      <Suspense fallback={<div>Please Wail... About is Loading</div>}>
+      <About />
+      </Suspense>
+    </div>
+     )
     }
-  }
+}
 
-  export default App;
-
-
-
+export default App;
