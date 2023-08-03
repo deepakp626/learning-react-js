@@ -568,23 +568,86 @@ import "./App.css";
 // }
 
 
-import React,{Suspense,lazy} from 'react'
-// import Home from './Home'
-const Home =lazy(()=>import('./Home'))
-const About = lazy(()=>import('./About'))
-class App extends React.Component{
-  render(){
-    return( <div>
-      <h1>Lazy Load</h1>
-      <Suspense fallback={<div>Please Wail... Home is Loading</div>}>
-      <Home />
-      </Suspense>
-      <Suspense fallback={<div>Please Wail... About is Loading</div>}>
-      <About />
-      </Suspense>
-    </div>
-     )
-    }
+///// lazy load 
+// import React,{Suspense,lazy} from 'react'
+// // import Home from './Home'
+// const Home =lazy(()=>import('./Home'))
+// const About = lazy(()=>import('./About'))
+// class App extends React.Component{
+//   render(){
+//     return( <div>
+//       <h1>Lazy Load</h1>
+//       <Suspense fallback={<div>Please Wail... Home is Loading</div>}>
+//       <Home />
+//       </Suspense>
+//       <Suspense fallback={<div>Please Wail... About is Loading</div>}>
+//       <About />
+//       </Suspense>
+//     </div>
+//      )
+//     }
+// }
+
+
+//// upload file
+// import React from 'react'
+
+//  class App extends React.Component {
+//   upload(e){
+//     console.warn(e.target.files)
+//     const files = e.target.files;
+//     const formData = new FormData();
+//     formData.append('img',files[0]);
+//     fetch('http://localhost:3000/',{
+//       methos:"POST",
+//       body:formData
+//     }).then((reqs)=>{
+//       reqs.json().then((result)=>{
+//         console.warn("result",result)
+//       })
+//     })
+
+//   }
+//   render() {
+//     return (
+//       <div>
+//         <h1>Upload file in react JS</h1>
+//         <input type="file" onChange={(e)=>{this.upload(e)}}  name="img"></input>
+//       </div>
+//     )
+//   }
+// }
+
+
+// /// type checking with propstypes in reactjs
+// import React from 'react'
+// import About from './About'
+// class App extends React.Component {
+//   render() {
+//     return (
+//       <div>
+//         <h1>type checking with propstypes in React</h1>
+//         <About age={20} name={"deepak"} />
+//       </div>
+//     )
+//   }
+// }
+
+
+
+//// custom hooks
+import React,{useState, useEffect} from 'react'
+import useTitle from './useTitle'
+const App = ()=> {
+  const [count,setCount]= useState(0);
+  useTitle(count)
+    return (
+      <div>
+        <h1>Custom hooks</h1>
+        <button onClick={()=>{setCount(count+1)}}>Click</button>
+      </div>
+    )
 }
+
 
 export default App;
